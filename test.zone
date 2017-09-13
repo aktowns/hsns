@@ -1,0 +1,22 @@
+; test.zone
+; For testing the zone parser
+
+@ IN SOA TEST Action\.domains (
+                   20      ; SERIAL
+                   7200    ; REFRESH
+                   600     ; RETRY
+                   3600000 ; EXPIRE
+                   60)     ; MINIMUM
+
+        NS    TEST1
+        NS    TEST2
+        MX    10      TEST1
+        MX    20      TEST2
+
+A       A     127.0.0.1
+
+TEST1   A     127.0.0.2
+        A     127.0.0.3
+
+TEST2   A     127.0.0.4
+        A     127.0.0.5

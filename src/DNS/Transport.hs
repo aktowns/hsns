@@ -1,20 +1,27 @@
 module DNS.Transport where
 
-import           Data.Binary.Get      (runGet)
-import           Data.Binary.Put      (runPut)
-import qualified Data.ByteString.Lazy as BSL
-import           Network.Socket       hiding (recv, recvFrom, send, sendTo)
+import           Data.Binary.Get                 (runGet)
+import           Data.Binary.Put                 (runPut)
+import qualified Data.ByteString.Lazy            as BSL
+import           Network.Socket                  hiding (recv, recvFrom, send,
+                                                  sendTo)
 
 import           DNS.Protocol
+import           DNS.Protocol.DNSClass
+import           DNS.Protocol.DNSName
+import           DNS.Protocol.ResourceRecord
+import           DNS.Protocol.ResourceRecordType
+import           DNS.Protocol.ResponseCode
+
 import           Parsing.BinaryBit
 import           Parsing.IPAddress
 import           Transport.UDP
 
 import           Hexdump
-import           Text.Pretty.Simple   (pPrint)
+import           Text.Pretty.Simple              (pPrint)
 
-import qualified Data.Map.Strict      as Map
-import           Data.Word            (Word8)
+import qualified Data.Map.Strict                 as Map
+import           Data.Word                       (Word8)
 import           Protolude
 
 data ZoneTy = ZA Word8 Word8 Word8 Word8

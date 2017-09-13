@@ -17,6 +17,12 @@ library
   hs-source-dirs:       src
   exposed-modules:      Lib
                       , DNS.Protocol
+                      , DNS.Protocol.DNSClass
+                      , DNS.Protocol.DNSName
+                      , DNS.Protocol.DNSOpcode
+                      , DNS.Protocol.ResourceRecord
+                      , DNS.Protocol.ResourceRecordType
+                      , DNS.Protocol.ResponseCode
                       , DNS.Transport
                       , Parsing.BinaryBit
                       , Parsing.IPAddress
